@@ -1,20 +1,38 @@
-d <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <script>
-        let words = ["soap", "code", "lamp", "plate", "perfume"]
-        let toBeGuessedWord = words[Math.floor(Math.random()*words.length)]
-        let answerArray = []
-        console.log(toBeGuessedWord)
+        function buttonClick() {
+            let words = ["soap", "code", "lamp", "plate", "perfume"]
+            let randomWord = words[Math.floor(Math.random() * words.length)]
+            let answerArray = []
+            let remaining = randomWord.length
+            for (let k = 0; k < remaining; k++) {
+                answerArray[k] = "-"
+            }
+            console.log(k)
+            for (let i = 0; i < remaining; i++) {
+                let playerGuess = prompt("Guess the letters to complete the word:")
+                if (playerGuess == randomWord[i]) {
+                    answerArray.push(playerGuess)
+                }
+            }
+            console.log(answerArray)
+        }
+        document.getElementById("guess-button").addEventListener("click", buttonClick())
+
     </script>
 
 </head>
+
 <body>
     <h1>Hangman</h1>
     <button id="guess-button">Guess</button>
 </body>
+
 </html>
