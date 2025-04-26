@@ -230,15 +230,12 @@ You could use the += operator to add a new letter to the end
 of the string. After the loop
  */
 
-let random_string = ""
-let alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-while (random_string.length < 6) {
-    let random_alphabet_index = Math.floor(Math.random() * alphabet.length)
-    let random_alphabet = alphabet[random_alphabet_index]
-    random_string = random_string + random_alphabet
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var string = ""
+while (string.length < 7){
+    let random_letter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    string += random_letter
 }
-console.log(random_string)
 
 
 /**
@@ -284,3 +281,30 @@ for (let letter of input) {
     }
 }
 console.log(output)
+
+// Hangman Game
+correct_guess = new Array()
+
+//Pick a random correct word from an array 
+let arr_of_words = ["ape", "moon", "sky", "blue", "ballon"]
+correct_word = arr_of_words[Math.floor(Math.random() * arr_of_words.length)]
+
+for (let i = 0; i < correct_word.length; i++) {
+    correct_guess[i] = "_"
+}
+
+console.log(correct_guess)
+
+//Keep prompting until correct guess matches correct word
+while (correct_guess.join("") != correct_word){
+    let guessed_letter = prompt("Guess a letter")
+    if (correct_word.includes(guessed_letter)) {
+        correct_letter = guessed_letter
+        let index_of_correct_letter = correct_word.indexOf(correct_letter)
+        correct_guess[index_of_correct_letter] = correct_letter
+        console.log("Good! Current guess: " + correct_guess.join(""))
+    }
+    else{
+        console.log("Try again")
+    }
+}

@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Meleyotan Oyeleke">
+    <meta name="description" content="Hangman game using JavaScript">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Hangman, Game">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=yes" />
     <title>Document</title>
 
     <script>
@@ -15,7 +20,6 @@
             for (let k = 0; k < remaining; k++) {
                 answerArray[k] = "-"
             }
-            console.log(k)
             for (let i = 0; i < remaining; i++) {
                 let playerGuess = prompt("Guess the letters to complete the word:")
                 if (playerGuess == randomWord[i]) {
@@ -24,7 +28,10 @@
             }
             console.log(answerArray)
         }
-        document.getElementById("guess-button").addEventListener("click", buttonClick())
+
+        let btn = document.getElementById("guess-button")
+
+        btn.addEventListener('click', buttonClick)
 
     </script>
 
